@@ -5,62 +5,91 @@
 
 int registro() //função responsavel por cadastrar os usuarios no sistema
 {
-	//inicio criação de variáveis/strings
-	char arquivo[40];
-	char cpf[40];
-	char nome[40];
-	char sobrenome[40];
-	char cargo[40];
-	//final da criação de variáveis/strings
+	int opcao=0; //Definindo as variaveis (módulo 03), revisar as variaveis ;p
+	int laco=1; //aula 5
 	
-	printf("Digite o CPF a se cadastrado: "); //coletando informações do usuário
-	scanf("%s", cpf); //espaço para colocar a variavel, o "%s" refere-se as strings(conjunto de variaveis)
+	for(laco=1;laco=1;) //depois da variavel e antes de tudo, entrada e saida
+	{
+		//inicio criação de variáveis/strings
+		char arquivo[40];
+		char cpf[40];
+		char nome[40];
+		char sobrenome[40];
+		char cargo[40];	
+		//final da criação de variáveis/strings
 	
-	strcpy(arquivo, cpf); //responsável por copiar os valores das strings
 	
-	FILE *file; //chmar a função do arquivo
-	file = fopen(arquivo, "w"); //cria o arquivo, "w" significa escrever
-	fprintf(file, "CPF: "); //separando as informações por categoria
-	fprintf(file,cpf); //salva o valor da variavel e adiciona
-	fclose(file); //fecha o arquivo
+		printf("Digite o CPF a se cadastrado: "); //coletando informações do usuário
+		scanf("%s", cpf); //espaço para colocar a variavel, o "%s" refere-se as strings(conjunto de variaveis)
 	
-	file = fopen(arquivo, "a"); // "a" refere-se a atualizar/adicionar
-	fprintf(file, ", ");
-	fclose(file); //fecha o arquivo
+		strcpy(arquivo, cpf); //responsável por copiar os valores das strings
 	
-	printf("Digite o nome a ser cadastrado: "); //coletar a informação
-	scanf("%s",nome); 
+		FILE *file; //chmar a função do arquivo
+		file = fopen(arquivo, "w"); //cria o arquivo, "w" significa escrever
+		fprintf(file, "CPF: "); //separando as informações por categoria
+		fprintf(file,cpf); //salva o valor da variavel e adiciona
+		fclose(file); //fecha o arquivo
 	
-	file = fopen(arquivo, "a"); //atualizando o arquivo com informações
-	fprintf(file, "NOME: "); //separando as informações por categoria
-	fprintf(file,nome); //adiciona a variável escolhida
-	fclose(file); //fecha o arquivo
+		file = fopen(arquivo, "a"); // "a" refere-se a atualizar/adicionar
+		fprintf(file, ", ");
+		fclose(file); //fecha o arquivo
 	
-	file = fopen(arquivo, "a"); //atualizando o arquivo com informações
-	fprintf(file, ", ");
-	fclose(file); //fecha o arquivo
+		printf("Digite o nome a ser cadastrado: "); //coletar a informação
+		scanf("%s",nome); 
 	
-	printf("Digite o sobrenome a ser cadastrado: "); //coletar a informação
-	scanf("%s",sobrenome);
+		file = fopen(arquivo, "a"); //atualizando o arquivo com informações
+		fprintf(file, "NOME: "); //separando as informações por categoria
+		fprintf(file,nome); //adiciona a variável escolhida
+		fclose(file); //fecha o arquivo
 	
-	file = fopen(arquivo, "a"); //atualizando o arquivo com informações
-	fprintf(file, "SOBRENOME: "); //separando as informações por categoria
-	fprintf(file,sobrenome); //adiciona a variável escolhida
-	fclose(file); //fecha o arquivo
+		file = fopen(arquivo, "a"); //atualizando o arquivo com informações
+		fprintf(file, ", ");
+		fclose(file); //fecha o arquivo
 	
-	file = fopen(arquivo, "a"); //atualizando o arquivo com informações
-	fprintf(file, ", ");
-	fclose(file); //fecha o arquivo
+		printf("Digite o sobrenome a ser cadastrado: "); //coletar a informação
+		scanf("%s",sobrenome);
 	
-	printf("Digite o cargo a ser cadastrado: "); //coletar a informação
-	scanf("%s",cargo);
+		file = fopen(arquivo, "a"); //atualizando o arquivo com informações
+		fprintf(file, "SOBRENOME: "); //separando as informações por categoria
+		fprintf(file,sobrenome); //adiciona a variável escolhida
+		fclose(file); //fecha o arquivo
 	
-	file = fopen(arquivo, "a"); //atualizando o arquivo com informações
-	fprintf(file, "CARGO: "); //separando as irformações por categoria
-	fprintf(file,cargo); //adiciona a variável escolida
-	fclose(file); //fecha o arquivo
+		file = fopen(arquivo, "a"); //atualizando o arquivo com informações
+		fprintf(file, ", ");
+		fclose(file); //fecha o arquivo
 	
-	system("pause");
+		printf("Digite o cargo a ser cadastrado: "); //coletar a informação
+		scanf("%s",cargo);
+	
+		file = fopen(arquivo, "a"); //atualizando o arquivo com informações
+		fprintf(file, "CARGO: "); //separando as irformações por categoria
+		fprintf(file,cargo); //adiciona a variável escolida
+		fclose(file); //fecha o arquivo
+	
+		system("cls");
+	
+		printf("\nDeseja inserir mais usuários?\n"); //opçao criada para caso o usuario queira adicionar novamente outro usuário
+		printf("\t1 - Sim\n"); //definindo opção de registrar novamente
+		printf("\t2 - Não\n\n"); //definindo opção de voltar a tela de inicio
+		printf("Opção: ");
+		
+		scanf("%d", &opcao);
+	
+		system("cls");
+	
+		switch(opcao) //definindo o que as opções vão fazer
+		{
+			case 1: //Inserir novo usuário 
+			system("cls");
+			break;
+			
+			case 2: //voltar a tela de inicio
+			return 0;
+			system("pause");
+			break;	
+		}
+	}
+
 }
 
 int consulta()
